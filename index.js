@@ -1,84 +1,23 @@
-import { combineReducers } from "redux";
+import React from "react";
+import ReactDOM from 'react-dom';
+import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+import reducers from "./reducers";
 
-const categoryReducer = (selectedCategory='ALL', action) => {
-  if(action.type === 'CATEGORY_SELECT') {
-    return action.payload
-  }
-  return selectedCategory
-}
+import App from './components/App';
 
-const currencyReducer = (selectedCurrency=null, action) => {
-  if(action.type === 'SET_CURRENCY') {
-    return action.payload
-  }
-  return selectedCurrency
-}
+export const client = new ApolloClient({
+  uri: "http://localhost:4000/",
+  cache: new InMemoryCache()
+});
 
-const productsReducer = (products=[], action) => {
-  if(action.type === 'SET_PRODUCTS') {
-    return action.payload
-  }
-  return products
-}
 
-const everyCurrencyReducer = (allCurrencies=null, action) => {
-  if(action.type === 'SET_ALL_CURRENCIES') {
-    return action.payload
-  }
-  return allCurrencies
-}
-
-const amountIndexReducer = (index=0, action) => {
-  if(action.type === 'SET_INDEX') {
-    return action.payload
-  }
-  return index
-}
-
-const singleProductReducer = (product=null, action) => {
-  if(action.type === 'SET_SINGLE_PRODUCT') {
-    return action.payload
-  }
-  return product
-}
-
-const PDPproductReducer = (product=null, action) => {
-  if(action.type === 'SET_PDP') {
-    return action.payload
-  }
-  return product
-}
-
-const showPDPReducer = (bool=false, action) => {
-  if(action.type === 'SHOW_PDP') {
-    return action.payload
-  }
-  return bool
-}
-
-const cartReducer = (cart=[], action) => {
-  if(action.type === 'ADD_TO_CART') {
-    return [...cart, action.payload]
-  }
-  return cart
-}
-
-const totalPriceReducer = (total=0, action) => {
-  if(action.type === 'ADD_TO_PRICE') {
-    return [...total, action.payload]
-  }
-  return total
-}
-
-export default combineReducers({
-  selectedCategory: categoryReducer,
-  selectedCurrency: currencyReducer,
-  products: productsReducer,
-  currencies: everyCurrencyReducer,
-  indexForAmount: amountIndexReducer,
-  selectedProduct: singleProductReducer,
-  PDPproduct: PDPproductReducer,
-  showPDP: showPDPReducer,
-  cart: cartReducer,
-  totalAmount: totalPriceReducer
-})
+ReactDOM.render(
+  <Provider store={createStore(reducers)}>
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
+  </Provider>,
+  document.querySelector('#root')
+);
