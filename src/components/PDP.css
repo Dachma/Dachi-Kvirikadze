@@ -1,0 +1,143 @@
+.PDP {
+  margin-left: -300px;
+  position: relative;
+  width: 1440px;
+  height: 745px;
+}
+
+.images {
+  border: 0.5px solid black;
+  border-radius: 10%;
+  position: absolute;
+  width: 79px;
+  height: 80px;
+  left: 100px;
+  top: 160px;
+  cursor: pointer;
+}
+
+.images:hover {
+  transform: scale(0.98);
+}
+
+.contents {
+  position: absolute;
+  width: 1002px;
+  height: 513px;
+  left: 219px;
+}
+
+.main-image {
+  position: absolute;
+  max-width: 610px;
+  height: 511px;
+  left: 219px;
+  top: 162px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.description {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 159.96%;
+  color: #1D1F22;
+}
+
+.info {
+  position: absolute;
+  width: 292px;
+  height: 100%;
+  left: 929px;
+  top: 160px;
+}
+
+.info div {
+  padding-bottom: 20px;
+}
+
+.attribute-select {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.brand {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 27px;
+  color: #1D1F22;
+}
+
+.product--name {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 27px;
+  color: #1D1F22;
+}
+
+.attribute-butons {
+  display: flex;
+  flex-direction: column;
+}
+
+.select-buttons {
+  width: 63px;
+  height: 45px;
+  border: 1px solid #A6A6A6;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.select-buttons:hover {
+  transform: scale(0.99);
+}
+
+.selected-button {
+  border: 3px solid green;
+  width: 60px;
+  height: 42px;
+}
+
+.attribute-name, .info--price {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 18px;
+  color: #1D1F22;
+}
+
+.info--amount {
+  height: 46px;
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  color: #1D1F22;
+}
+
+.addToCart {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 32px;
+  width: 292px;
+  height: 52px;
+  background: #5ECE7B;
+  margin-bottom: 50px;
+}
+
+.addToCart:active {
+  transform: scale(0.97);
+}
